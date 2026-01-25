@@ -316,7 +316,6 @@ jobs:
     - uses: actions/setup-python@v5
       with:
         python-version: 3.12
-        architecture: ${{ matrix.python_arch }}
     - name: install dependencies
       run: |
         python -mpip install --progress-bar=off cibuildwheel -r ci/requirements.txt
