@@ -306,6 +306,10 @@ jobs:
       if: matrix.cibw_arch == 'aarch64'
       with:
         platforms: arm64
+    - uses: docker/setup-qemu-action@v3
+      if: matrix.cibw_arch == 'riscv64'
+      with:
+        platforms: riscv64
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
@@ -345,6 +349,10 @@ jobs:
         CIBW_TEST_COMMAND_WINDOWS: >
           cd /d {project} &&
           tox --skip-pkg-install --direct-yolo -e ${{ matrix.tox_env }} -vv
+    - uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python }}
+        architecture: ${{ matrix.python_arch }}
     - name: regular build and test
       if: >
         !matrix.cibw_build
