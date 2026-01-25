@@ -343,10 +343,10 @@ jobs:
           tox==4.24.1
         CIBW_TEST_COMMAND: >
           cd {project} &&
-          tox --skip-pkg-install -e ${{ matrix.tox_env }} -vv
+          tox -e ${{ matrix.tox_env }} -vv
         CIBW_TEST_COMMAND_WINDOWS: >
           cd /d {project} &&
-          tox --skip-pkg-install -e ${{ matrix.tox_env }} -vv
+          tox -e ${{ matrix.tox_env }} -vv
     - uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python }}
