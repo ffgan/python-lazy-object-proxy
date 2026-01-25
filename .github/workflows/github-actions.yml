@@ -341,7 +341,7 @@ jobs:
         CIBW_BUILD_VERBOSITY: '3'
         CIBW_TEST_REQUIRES: >
           tox==4.24.1
-          tox-direct
+          tox-direct==0.4
         CIBW_TEST_COMMAND: >
           cd {project} &&
           tox --skip-pkg-install --direct-yolo -e ${{ matrix.tox_env }} -vv
